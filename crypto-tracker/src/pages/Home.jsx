@@ -1,9 +1,10 @@
 import React from 'react';
+import Header from '../components/Header';
 
 function Home(props) {
     return (
         <div>
-            This is the main home page and will display the currently tracked cryptos.
+            <Header />
         </div>
     );
 }
