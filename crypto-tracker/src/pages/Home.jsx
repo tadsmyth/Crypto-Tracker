@@ -24,3 +24,17 @@ export default Home;
 //  [ ]Display the prices of each coin
 //  [ ]Display the trending up or down arrow based on current trends
     //  Would like to make this a full on chart or maybe put the chart in the details page...
+
+
+    //Current ToDos:
+    // [X] Get API Data
+    // [X] Create the context for watchlist data to be global
+    // [x] Install Bootstrap / Tailwind for CSS framework
+        // Went with Bootstrap
+    // [X] install Axios to handle fetch request
+    // [] Maybe use SASS for CSS?
+    // [] Render the API data for the top 3 watchlist coins
+    // [] Add a details page with more info from API
+    // [] Add search button to render user input coin
+    // [] Styling as you go using Bootstrap
+    // [] Incorporate a local storage to keep the list of currently tracked coins on the page while navigating between pages
