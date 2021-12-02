@@ -2,6 +2,7 @@ import React , { useEffect , useState }from 'react';
 import coinGecko from '../api/coinGecko';
 
 
+
 function CoinList(props) {
    // This state will store the data from the API
     const [coins, setCoins] = useState([])
@@ -9,15 +10,16 @@ function CoinList(props) {
 
     //This effect is the fetch call and uses my previous axios object to grab a new endpoint.
     useEffect(() => {
-        const fetchData = async () => {
-           const response = await coinGecko.get('/coins/markets', {
+        const fetchData =  () => {
+           const response =  coinGecko.get('/coins/markets', {
                 params: {
                     vs_currency: 'usd',
-                    ids: 'bitcoin,ethereum'
+                    ids: 'bitcoin,ethereum',
                 }
-            })
-
-            console.log(response.data)
+            }).then(response => {console.log(response)})
+            .catch(err => {console.log(err)})
+           
+            
         }
         fetchData()
         //This empty array keeps the API from fetching again whenever anything at all changes. I think.
@@ -26,7 +28,7 @@ function CoinList(props) {
    
     return (
         <div>
-            
+          
         </div>
     );
 }

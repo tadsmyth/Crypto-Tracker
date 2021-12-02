@@ -6,11 +6,13 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css'
 import { Button } from 'react-bootstrap'
 import './App.css'
+import CoinList from './components/CoinList';
 
 function App(props) {
     return (
         <div>
             <Header />
+            <CoinList />
     
             <Route exact path="/details" component={Details}/>
             <Route exact path="/src/components/" component={Home} />
