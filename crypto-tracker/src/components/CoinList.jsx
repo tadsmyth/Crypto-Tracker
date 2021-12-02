@@ -1,23 +1,29 @@
-import React , { useEffect , useState }from 'react';
+import React , { useContext, useEffect , useState }from 'react';
 import coinGecko from '../api/coinGecko';
+import { WatchListContext } from '../context/watchListContext';
 
 
 
 function CoinList(props) {
    // This state will store the data from the API
     const [coins, setCoins] = useState([])
+    // This will bring in the context from the watchList state
+    const {watchList} = useContext(WatchListContext)
+
+    // console.log(watchList)
     
 
     //This effect is the fetch call and uses my previous axios object to grab a new endpoint.
     useEffect(() => {
-        const fetchData =  () => {
-           const response =  coinGecko.get('/coins/markets', {
+        const fetchData = async () => {
+           const response =  await coinGecko.get('/coins/markets/', {
                 params: {
                     vs_currency: 'usd',
-                    ids: 'bitcoin,ethereum',
+                    //the .join is taking the data from my watchList and joining them with a , to fit the param requierments.
+                    ids: watchList.join(','),
                 }
-            }).then(response => {console.log(response)})
-            .catch(err => {console.log(err)})
+            }) 
+            console.log(response.data)
            
             
         }

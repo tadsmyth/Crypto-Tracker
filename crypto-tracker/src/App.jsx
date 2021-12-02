@@ -7,15 +7,18 @@ import 'bootstrap/dist/css/bootstrap.css'
 import { Button } from 'react-bootstrap'
 import './App.css'
 import CoinList from './components/CoinList';
+import { WatchListContext, WatchListContextProvider } from './context/watchListContext';
 
 function App(props) {
     return (
         <div>
+            <WatchListContextProvider>
             <Header />
             <CoinList />
     
             <Route exact path="/details" component={Details}/>
             <Route exact path="/src/components/" component={Home} />
+            </WatchListContextProvider>
         </div>
     );
 }
