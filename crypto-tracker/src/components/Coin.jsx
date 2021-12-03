@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
 function Coin({coin}) {
     return (
@@ -10,15 +10,17 @@ function Coin({coin}) {
                  <img className="coinlist-image" src={coin.image} alt="" />
                 {/* Below will show the current price inline with each item */}
                 <span className='text-decoration-none'>${coin.current_price}</span>
-                {/* Below is for the price change in 24hr and it will be red or green */}
-                {/* put the fontAwesome arrow icons here */}
-                <span className='text-success m-5'><FontAwesomeIcon className='m-1' icon={faArrowDown}/>{coin.price_change_percentage_24h}
-                
-                </span>
 
+                {/* Below is for the price change in 24hr and it will be red or green */}
+                
+                <span className={coin.price_change_percentage_24h < 0 ? 'text-danger m-1' : 'text-success m-1'}>
+                    <i>{coin.price_change_percentage_24h < 0 ? <FontAwesomeIcon className='m-1' icon={faArrowDown}/> : <FontAwesomeIcon className='m-1' icon={faArrowUp}/> } </i>
+                    {coin.price_change_percentage_24h}
+                </span>
                 </li>
             </Link>
     );
 }
 
 export default Coin;
+
