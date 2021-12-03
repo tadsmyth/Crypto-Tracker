@@ -9,3 +9,7 @@ function DataChart(props) {
 }
 
 export default DataChart;
+
+
+
+// This will hold the data needed to make the chart using chart.js

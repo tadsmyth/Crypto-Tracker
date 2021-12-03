@@ -16,7 +16,7 @@ function App(props) {
             <Header />
            
     
-            <Route exact path="/coins/:id" component={Details}/>
+            <Route exact path="/coins/:coin" component={Details}/>
             <Route exact path="/" component={Home} />
             </WatchListContextProvider>
         </div>
