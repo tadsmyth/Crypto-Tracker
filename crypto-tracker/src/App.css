@@ -9,10 +9,30 @@
 }
 
 body {
-    background-color: rgb(195,245,60);
+    /* background-color: rgb(195,245,60); */
+    background-color: darkgreen;
     font-family: 'Outfit', sans-serif;
 }
 
 ul {
     list-style: none;
+}
+
+  
+.coinlist-image {
+    width: 6%;
+}
+  
+.coinlist-item {
+    display: flex;
+}
+  
+ 
+.coin-data-category {
+    font-size: 10px;
+}
+  
+  /* Tried to remove the underline in the numbers on the coin summary page */
+.Link {
+    text-decoration: none;
 }
