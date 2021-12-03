@@ -1,6 +1,8 @@
 import React , { useContext, useEffect , useState }from 'react';
 import coinGecko from '../api/coinGecko';
 import { WatchListContext } from '../context/watchListContext';
+import Coin from './Coin';
+import { Link } from 'react-router-dom'
 
 
 
@@ -24,7 +26,7 @@ function CoinList(props) {
                 }
             }) 
             console.log(response.data)
-           
+           setCoins(response.data)  
             
         }
         fetchData()
@@ -32,10 +34,17 @@ function CoinList(props) {
     }, [] )
     
    
+    // [] Make a function to render out the data
+    // [X] These coins will be Links to /detail. So import Link here and in the Coin component
+    // [] Map needs a key unique to each item. What will it be???
+    
+// key={???}
+
+
     return (
-        <div>
-          
-        </div>
+        <ul className="coinList list-group mt-4">
+                    {coins.map(coin => <Coin key={coin.id} coin={coin}/>)}
+                </ul>
     );
 }
 
