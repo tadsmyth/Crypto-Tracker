@@ -11,13 +11,13 @@ import { WatchListContext, WatchListContextProvider } from './context/watchListC
 
 function App(props) {
     return (
-        <div>
+        <div className='container'>
             <WatchListContextProvider>
             <Header />
-            <CoinList />
+           
     
-            <Route exact path="/details" component={Details}/>
-            <Route exact path="/src/components/" component={Home} />
+            <Route exact path="/coins/:id" component={Details}/>
+            <Route exact path="/" component={Home} />
             </WatchListContextProvider>
         </div>
     );

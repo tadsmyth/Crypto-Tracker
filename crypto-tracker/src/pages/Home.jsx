@@ -1,13 +1,14 @@
 import React from 'react';
 import Header from '../components/Header';
 import AddCoin from '../components/AddCoin';
-import CoinList from '../components/CoinList'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import CoinList from '../components/CoinList';
+
+
+
 
 function Home(props) {
     return (
-        <div>
-            <p><FontAwesomeIcon icon='arrow-up'/></p>
+        <div className='coinlist shadow border rounded p-1 m-1 bg-warning'>
             <AddCoin />
             <CoinList />
         </div>

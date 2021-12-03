@@ -36,3 +36,8 @@ ul {
 .Link {
     text-decoration: none;
 }
+
+.coinlist {
+    border-color: white;
+    border-style: outset;
+  }

@@ -5,7 +5,7 @@ import { faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
 function Coin({coin}) {
     return (
-            <Link to='/details'>
+            <Link to={`/coins/${coin.id}`}>
                  <li className="coinlist-item list-group-item list-group-item-action d-flex justify-content-between align-items-center text-dark">
                  <img className="coinlist-image" src={coin.image} alt="" />
                 {/* Below will show the current price inline with each item */}
@@ -16,7 +16,7 @@ function Coin({coin}) {
                 <span className={coin.price_change_percentage_24h < 0 ? 'text-danger m-1' : 'text-success m-1'}>
                     <i>{coin.price_change_percentage_24h < 0 ? <FontAwesomeIcon className='m-1' icon={faArrowDown}/> : <FontAwesomeIcon className='m-1' icon={faArrowUp}/> } </i>
                     {coin.price_change_percentage_24h}
-                </span>
+                  %</span>
                 </li>
             </Link>
     );
