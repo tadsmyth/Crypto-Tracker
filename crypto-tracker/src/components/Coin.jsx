@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 
 function Coin({coin}) {
     return (
@@ -11,7 +13,7 @@ function Coin({coin}) {
                 {/* Below is for the price change in 24hr and it will be red or green */}
                 {/* put the fontAwesome arrow icons here */}
                 <span className='text-success m-5'>{coin.price_change_percentage_24h}
-                <i className="fas fa-sort-down align-middle"></i>
+                <FontAwesomeIcon icon={faArrowDown}/>
                 </span>
 
                 </li>
