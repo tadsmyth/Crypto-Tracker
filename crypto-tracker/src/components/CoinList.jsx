@@ -2,6 +2,7 @@ import React , { useContext, useEffect , useState }from 'react';
 import coinGecko from '../api/coinGecko';
 import { WatchListContext } from '../context/watchListContext';
 import Coin from './Coin';
+import AddCoin from './AddCoin';
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 

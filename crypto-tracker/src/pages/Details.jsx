@@ -7,7 +7,7 @@ import coinGecko from '../api/coinGecko';
 function Details(props) {
     // useParam will take the param from my coin.id as a const
     const { coin } = useParams()
-    const [coinInfo, setCoinInfo] = useState([])
+    const [coinInfo, setCoinInfo] = useState({})
     
     
     useEffect(() => {
@@ -33,11 +33,19 @@ function Details(props) {
                     
                 }
             }) 
+            const responseDetail =  await coinGecko.get(`/coins/markets/`, {
+                params: {
+                    vs_currency: 'usd',
+                    ids: 'id',
+                    
+                }
+            }) 
             console.log(responseYear)
             setCoinInfo({
                 day: responseDay.data.prices,
                 week: responseWeek.data.prices,
                 year: responseYear.data.prices,
+                detail: responseDetail.data[0],
             })
             
             
@@ -51,7 +59,7 @@ function Details(props) {
        return (
        <div className='coinlist'>
             <DataChart />
-            <CoinData />
+            <CoinData data={CoinData.responseDetail}/>
 
         </div>
        )
