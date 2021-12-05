@@ -23,6 +23,8 @@ export const WatchListContextProvider = props => {
     
     return (
         <WatchListContext.Provider value = {{watchList , addCoin}}>
+           {/* props.children is used to render out what is inbetween the opening and closing tags of a component call.  */}
+           {/* In this case, the items in watchList and the addCoin function */}
             {props.children}
         </WatchListContext.Provider>
     )

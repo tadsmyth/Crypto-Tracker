@@ -1,6 +1,6 @@
 import React from 'react';
 
-function CoinData({data}) {
+function CoinData(data) {
     
     const renderData = () => {
         <div className="bg-white mt-2 p-1 rounded border row">

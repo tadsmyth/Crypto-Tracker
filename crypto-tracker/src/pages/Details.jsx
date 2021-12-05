@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import CoinData from '../components/CoinData';
-import DataChart from '../components/DataChart';
+
 import coinGecko from '../api/coinGecko';
 
 function Details(props) {
@@ -64,7 +64,7 @@ function Details(props) {
        }
         return (
        <div className='coinlist'>
-            <DataChart data={coinInfo}/>
+            {/* <DataChart data={coinInfo}/> */}
             <CoinData data={coinInfo.detail}/>
 
         </div>
