@@ -43,12 +43,12 @@ function Details(props) {
               },
             }),
           ]);
-          console.log(day);
+          console.log(detail);
     
           setCoinInfo({
-            day: responseDay(day.data.prices),
-            week: responseWeek(week.data.prices),
-            year: responseYear(year.data.prices),
+            day: day.data.prices,
+            week: week.data.prices,
+            year: year.data.prices,
             detail: detail.data[0],
           });
           setIsFetching(false);
