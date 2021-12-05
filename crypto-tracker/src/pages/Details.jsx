@@ -7,57 +7,55 @@ import coinGecko from '../api/coinGecko';
 function Details(props) {
     // useParam will take the param from my coin.id as a const
     const { coin } = useParams()
-    const [coinInfo, setCoinInfo] = useState([])
+    const [coinInfo, setCoinInfo] = useState({})
     // set a fethcing state to render in case the data didnt load fast enough to let user knwo
     const [isFetching, setIsFetching] = useState(false)
     
     
+//state needed to be an object. Made all fetches into an object instead using Promise.all
+
     useEffect(() => {
         const fetchData = async () => {
-            setIsFetching(true)
-           const responseDay =  await coinGecko.get(`/coins/${coin}/market_chart`, {
-                params: {
-                    vs_currency: 'usd',
-                    days: '1',
-                    
-                }
-            }) 
-            const responseWeek =  await coinGecko.get(`/coins/${coin}/market_chart`, {
-                params: {
-                    vs_currency: 'usd',
-                    days: '7',
-                    
-                }
-            }) 
-            const responseYear =  await coinGecko.get(`/coins/${coin}/market_chart`, {
-                params: {
-                    vs_currency: 'usd',
-                    days: '365',
-                    
-                }
-            }) 
-            const responseDetail =  await coinGecko.get(`/coins/markets/`, {
-                params: {
-                    vs_currency: 'usd',
-                    ids: coin,
-                    
-                }
-            }) 
-            console.log(responseYear)
-            setCoinInfo({
-                day: responseDay.data.prices,
-                week: responseWeek.data.prices,
-                year: responseYear.data.prices,
-                detail: responseDetail.data[0],
-            })
-            setIsFetching(false)
-            
-            
-        }
-        fetchData()
-        console.log(coinInfo.detail)
-        //This empty array keeps the API from fetching again whenever anything at all changes. I think.
-    }, [] )
+          setIsFetching(true);
+          const [day, week, year, detail] = await Promise.all([
+            coinGecko.get(`/coins/${coin}/market_chart/`, {
+              params: {
+                vs_currency: "usd",
+                days: "1",
+              },
+            }),
+            coinGecko.get(`/coins/${coin}/market_chart/`, {
+              params: {
+                vs_currency: "usd",
+                days: "7",
+              },
+            }),
+            coinGecko.get(`/coins/${coin}/market_chart/`, {
+              params: {
+                vs_currency: "usd",
+                days: "365",
+              },
+            }),
+            coinGecko.get("/coins/markets/", {
+              params: {
+                vs_currency: "usd",
+                ids: coin,
+              },
+            }),
+          ]);
+          console.log(day);
+    
+          setCoinInfo({
+            day: responseDay(day.data.prices),
+            week: responseWeek(week.data.prices),
+            year: responseYear(year.data.prices),
+            detail: detail.data[0],
+          });
+          setIsFetching(false);
+        };
+    
+        fetchData();
+      }, []);
     
     
     const displayData = () => {
