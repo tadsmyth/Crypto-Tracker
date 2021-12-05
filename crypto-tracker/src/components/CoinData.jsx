@@ -25,7 +25,7 @@ const CoinData = ( {data} ) => {
                
           <div className="col-sm">
             <div className="d-flex flex-column">
-              <span className="text-muted coin-data-category">24hr Volume</span>
+              <span className="text-muted coin-data-category">24h Volume</span>
               <span>{data.total_volume} (Coins Traded in 24hrs)</span>
             </div>
             <hr />
