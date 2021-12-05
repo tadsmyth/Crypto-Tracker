@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import Chartjs from 'react-chartjs-2'
 
-function DataChart(props) {
+
+
+function DataChart({data}) {
+    
+    const chartRef = useRef()
+    const 
+    
     return (
         <div>
             

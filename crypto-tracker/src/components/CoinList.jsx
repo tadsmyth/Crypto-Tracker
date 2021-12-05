@@ -13,6 +13,8 @@ function CoinList(props) {
     const [coins, setCoins] = useState([])
     // This will bring in the context from the watchList state
     const {watchList} = useContext(WatchListContext)
+    // create a loading state
+    const [loading, setLoading] = useState(false)
 
     // console.log(watchList)
     
@@ -20,6 +22,7 @@ function CoinList(props) {
     //This effect is the fetch call and uses my previous axios object to grab a new endpoint.
     useEffect(() => {
         const fetchData = async () => {
+            setLoading(true)
            const response =  await coinGecko.get('/coins/markets/', {
                 params: {
                     vs_currency: 'usd',
@@ -28,17 +31,26 @@ function CoinList(props) {
                 }
             }) 
             console.log(response.data)
-           setCoins(response.data)  
+           setCoins(response.data)
+           setLoading(false)  
             
         }
         fetchData()
         //This empty array keeps the API from fetching again whenever anything at all changes. I think.
     }, [] )
     
+
+
+    const loadCoins = () => {
+        if (loading) {
+            return <div>Loading Coins...</div>
+        }
+    }
    
     // [] Make a function to render out the data
     // [X] These coins will be Links to /detail. So import Link here and in the Coin component
     // [] Map needs a key unique to each item. What will it be???
+    // [] Add a delete button later?
     
 // key={???}
 
@@ -48,6 +60,8 @@ function CoinList(props) {
                     {coins.map(coin => <Coin key={coin.id} coin={coin}/>)}
                 </ul>
     );
+
+    
 }
 
 export default CoinList;

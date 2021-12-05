@@ -7,7 +7,7 @@ import coinGecko from '../api/coinGecko';
 function Details(props) {
     // useParam will take the param from my coin.id as a const
     const { coin } = useParams()
-    const [coinInfo, setCoinInfo] = useState({})
+    const [coinInfo, setCoinInfo] = useState([])
     // set a fethcing state to render in case the data didnt load fast enough to let user knwo
     const [isFetching, setIsFetching] = useState(false)
     
@@ -39,7 +39,7 @@ function Details(props) {
             const responseDetail =  await coinGecko.get(`/coins/markets/`, {
                 params: {
                     vs_currency: 'usd',
-                    ids: 'id',
+                    ids: coin,
                     
                 }
             }) 
@@ -66,7 +66,7 @@ function Details(props) {
         return (
        <div className='coinlist'>
             <DataChart />
-            <CoinData data={CoinData.responseDetail}/>
+            <CoinData data={coinInfo.detail}/>
 
         </div>
        )

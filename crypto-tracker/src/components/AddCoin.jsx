@@ -30,6 +30,7 @@ function AddCoin(props) {
     
     const handleClick = (coin) => {
         addCoin(coin)
+        setMenuItems(false)
     }
 
     
@@ -39,7 +40,7 @@ function AddCoin(props) {
         <button className="btn btn-dark dropdown-toggle" onClick={() => setMenuItems(!menuItems)} type='button'>Add Coin</button>
             <div className={menuItems ? 'dropdown-menu show' : 'dropdown-menu'}>
                 {/* Map over the array to display them in the dropdown while adding a bootstrap class */}
-                {possibleCoins.map(coin => {
+                {possibleCoins.map((coin) => {
                     return(
                         <a onClick={() => handleClick(coin)} href='#' className='dropdown-item' >{coin}</a>
                     )
