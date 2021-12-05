@@ -8,7 +8,7 @@ import { WatchListContext } from '../context/watchListContext';
 
 function Coin({coin , deleteCoin}) {
     return (
-            <Link to={`/coins/${coin.id}`}>
+            <Link className='coin' to={`/coins/${coin.id}`}>
                  <li className="coinlist-item list-group-item list-group-item-action d-flex justify-content-between align-items-center text-dark">
                  <img className="coinlist-image" src={coin.image} alt="" />
                 {/* Below will show the current price inline with each item */}
@@ -23,7 +23,7 @@ function Coin({coin , deleteCoin}) {
                   %<i><FontAwesomeIcon  onClick={(event) => {
                     event.preventDefault() 
                     deleteCoin(coin.id)
-                    }}       className='text-danger m-1' icon={faMinusCircle}/></i></span>
+                    }}       className='text-danger m-1 delete-btn' icon={faMinusCircle}/></i></span>
                 </li>
             </Link>
     );

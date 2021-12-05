@@ -50,3 +50,12 @@ ul {
   .coinlist-name {
       text-decoration: none;
   }
+
+  .delete-btn {
+      display: none;   
+      
+  }
+
+  .coin:hover .delete-btn {
+      display: inline-block;
+  }

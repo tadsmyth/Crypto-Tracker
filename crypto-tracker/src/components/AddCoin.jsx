@@ -37,7 +37,7 @@ function AddCoin() {
     return (
         <div className='dropdown'> 
         {/* use onClick to toggle state */}
-        <button className="btn btn-dark dropdown-toggle" onClick={() => setMenuItems(!menuItems)} type='button'>Add Coin</button>
+        <button className="btn btn-dark dropdown-toggle" onClick={() => setMenuItems(!menuItems)} type='button'>Popular Coins</button>
             <div className={menuItems ? 'dropdown-menu show' : 'dropdown-menu'}>
                 {/* Map over the array to display them in the dropdown while adding a bootstrap class */}
                 {possibleCoins.map((coin) => {

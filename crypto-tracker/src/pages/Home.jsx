@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../components/Header';
 import AddCoin from '../components/AddCoin';
 import CoinList from '../components/CoinList';
+import Coin from '../components/Coin';
 
 
 
@@ -9,7 +10,7 @@ import CoinList from '../components/CoinList';
 function Home(props) {
     return (
         <div className='coinlist shadow border rounded p-1 m-1 bg-warning'>
-            <AddCoin />
+            <AddCoin coins={Coin.name}/>
             <CoinList />
         </div>
     );
