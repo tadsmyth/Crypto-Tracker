@@ -8,10 +8,13 @@ function Details(props) {
     // useParam will take the param from my coin.id as a const
     const { coin } = useParams()
     const [coinInfo, setCoinInfo] = useState({})
+    // set a fethcing state to render in case the data didnt load fast enough to let user knwo
+    const [isFetching, setIsFetching] = useState(false)
     
     
     useEffect(() => {
         const fetchData = async () => {
+            setIsFetching(true)
            const responseDay =  await coinGecko.get(`/coins/${coin}/market_chart`, {
                 params: {
                     vs_currency: 'usd',
@@ -47,6 +50,7 @@ function Details(props) {
                 year: responseYear.data.prices,
                 detail: responseDetail.data[0],
             })
+            setIsFetching(false)
             
             
         }
@@ -56,7 +60,10 @@ function Details(props) {
     
     
     const displayData = () => {
-       return (
+       if (isFetching) {
+           return <div>Looking for data...</div>
+       }
+        return (
        <div className='coinlist'>
             <DataChart />
             <CoinData data={CoinData.responseDetail}/>
