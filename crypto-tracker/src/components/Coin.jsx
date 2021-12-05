@@ -1,10 +1,12 @@
-import React from 'react';
+import React , { Context } from 'react';
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowDown, faArrowUp, faMinusCircle } from '@fortawesome/free-solid-svg-icons';
+import { WatchListContext } from '../context/watchListContext';
 
 
-function Coin({coin}) {
+
+function Coin({coin , deleteCoin}) {
     return (
             <Link to={`/coins/${coin.id}`}>
                  <li className="coinlist-item list-group-item list-group-item-action d-flex justify-content-between align-items-center text-dark">

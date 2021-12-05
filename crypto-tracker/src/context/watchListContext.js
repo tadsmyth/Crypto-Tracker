@@ -12,7 +12,12 @@ export const WatchListContextProvider = props => {
     const [watchList, setWatchList] = useState(['bitcoin', 'ethereum', 'dogecoin', 'ripple'])
 
 
-    
+    const deleteCoin = coin => {
+        setWatchList(watchList.filter((element) => {
+            return element !== coin
+        }))
+    }
+
     
     const addCoin = coin => {
     //    use indexOf to make a check if the selected coin is in the list
@@ -22,7 +27,7 @@ export const WatchListContextProvider = props => {
     }
     
     return (
-        <WatchListContext.Provider value = {{watchList , addCoin}}>
+        <WatchListContext.Provider value = {{watchList , addCoin , deleteCoin}}>
            {/* props.children is used to render out what is inbetween the opening and closing tags of a component call.  */}
            {/* In this case, the items in watchList and the addCoin function */}
             {props.children}
