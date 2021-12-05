@@ -12,7 +12,7 @@ function CoinList(props) {
    // This state will store the data from the API
     const [coins, setCoins] = useState([])
     // This will bring in the context from the watchList state
-    const {watchList} = useContext(WatchListContext)
+    const {watchList, deleteCoin} = useContext(WatchListContext)
     // create a loading state
     const [loading, setLoading] = useState(false)
 
@@ -57,7 +57,7 @@ function CoinList(props) {
 
     return (
         <ul className="coinList list-group mt-4">
-                    {coins.map(coin => <Coin key={coin.id} coin={coin}/>)}
+                    {coins.map(coin => <Coin key={coin.id} coin={coin} deleteCoin={deleteCoin}/>)}
                 </ul>
     );
 
