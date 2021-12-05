@@ -3,6 +3,7 @@ import React from 'react';
 function CoinData(data) {
     
     const renderData = () => {
+      
         <div className="bg-white mt-2 p-1 rounded border row">
         <div className="col-sm">
           <div className="d-flex flex-column">
@@ -25,7 +26,7 @@ function CoinData(data) {
           </div>
           <hr />
           <div className="d-flex flex-column">
-            <span className="text-muted coin-data-category">high 24h</span>
+            <span className="text-muted coin-data-category">24h High</span>
             <span>{data.high_24h}</span>
           </div>
         </div>
@@ -39,7 +40,7 @@ function CoinData(data) {
           </div>
           <hr />
           <div className="d-flex flex-column">
-            <span className="text-muted coin-data-category">low 24h</span>
+            <span className="text-muted coin-data-category">24h Low</span>
             <span>{data.low_24h}</span>
           </div>
         </div>
@@ -48,7 +49,8 @@ function CoinData(data) {
     
     return (
         <div>
-            {renderData()}
+          <button className='btn btn-primary'>Test</button>
+            <div>{renderData()}</div>
         </div>
     );
 }
