@@ -6,11 +6,11 @@ import Chartjs from 'react-chartjs-2'
 function DataChart({data}) {
     
     const chartRef = useRef()
-    const 
+    
     
     return (
         <div>
-            
+            <canvas ref={chartRef} id='myChart' width={200} height={200}></canvas>
         </div>
     );
 }

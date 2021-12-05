@@ -55,6 +55,7 @@ function Details(props) {
             
         }
         fetchData()
+        console.log(coinInfo.detail)
         //This empty array keeps the API from fetching again whenever anything at all changes. I think.
     }, [] )
     
@@ -65,7 +66,7 @@ function Details(props) {
        }
         return (
        <div className='coinlist'>
-            <DataChart />
+            <DataChart data={coinInfo}/>
             <CoinData data={coinInfo.detail}/>
 
         </div>
