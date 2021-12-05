@@ -46,3 +46,7 @@ ul {
       width: 15%;
       height: 15%;
   }
+
+  .coinlist-name {
+      text-decoration: none;
+  }

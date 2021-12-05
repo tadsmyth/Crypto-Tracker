@@ -36,8 +36,8 @@ function CoinList(props) {
             
         }
         fetchData()
-        //This empty array keeps the API from fetching again whenever anything at all changes. I think.
-    }, [] )
+        //This array with watchList means that the useEffect runs whenever the watchList is updated
+    }, [watchList] )
     
 
 

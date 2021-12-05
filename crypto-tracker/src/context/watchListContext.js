@@ -9,8 +9,13 @@ export const WatchListContext = createContext()
 // These exports allow me to use this const anywhere in the app.
 //i made this in another file to ensure global scope without being in any one component
 export const WatchListContextProvider = props => {
-    const [watchList, setWatchList] = useState(['bitcoin', 'ethereum', 'dogecoin', 'ripple'])
+    const [watchList, setWatchList] = useState([])
 
+
+
+//Delete coin needs to go to 2 different components:
+// [x] Coin
+// [x] CoinList
 
     const deleteCoin = coin => {
         setWatchList(watchList.filter((element) => {
@@ -34,3 +39,7 @@ export const WatchListContextProvider = props => {
         </WatchListContext.Provider>
     )
 }
+
+
+
+// 'bitcoin', 'ethereum', 'dogecoin', 'ripple'

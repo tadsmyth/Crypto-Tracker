@@ -12,6 +12,7 @@ function Coin({coin , deleteCoin}) {
                  <li className="coinlist-item list-group-item list-group-item-action d-flex justify-content-between align-items-center text-dark">
                  <img className="coinlist-image" src={coin.image} alt="" />
                 {/* Below will show the current price inline with each item */}
+                <span className='coinlist-name'>{coin.name}</span>
                 <span className='text-decoration-none'>${coin.current_price}</span>
 
                 {/* Below is for the price change in 24hr and it will be red or green */}
