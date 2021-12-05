@@ -66,7 +66,7 @@ function Details(props) {
        <div className='coinlist'>
             {/* <DataChart data={coinInfo}/> */}
             <CoinData data={coinInfo.detail}/>
-
+            
         </div>
        )
     }

@@ -9,7 +9,7 @@ import Coin from '../components/Coin';
 
 function Home(props) {
     return (
-        <div className='coinlist shadow border rounded p-1 m-1 bg-warning'>
+        <div className='coinlist shadow border rounded p-1 m-1 bg-dark'>
             <AddCoin coins={Coin.name}/>
             <CoinList />
         </div>

@@ -10,7 +10,7 @@
 
 body {
     /* background-color: rgb(195,245,60); */
-    background-color: darkgreen;
+    background-color: #061121;
     font-family: 'Outfit', sans-serif;
 }
 
@@ -43,8 +43,8 @@ ul {
   }
 
   .coin-data-image {
-      width: 15%;
-      height: 15%;
+      width: 12%;
+      height: 12%;
   }
 
   .coinlist-name {
@@ -59,3 +59,20 @@ ul {
   .coin:hover .delete-btn {
       display: inline-block;
   }
+
+  .header-name {
+      margin-left: 185px;
+      font-size: larger;
+  }
+
+  .header-price {
+      margin-left: 250px;
+      font-size: larger;
+  }
+  
+  .header-price-change {
+      margin-left: 200px;
+      font-size: larger;
+  }
+
+  
