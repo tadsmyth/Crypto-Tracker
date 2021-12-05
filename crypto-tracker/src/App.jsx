@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css'
 import { Button } from 'react-bootstrap'
 import './App.css'
-import CoinList from './components/CoinList';
+
 import { WatchListContext, WatchListContextProvider } from './context/watchListContext';
 
 function App(props) {
