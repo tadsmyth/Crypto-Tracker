@@ -1,53 +1,71 @@
-import React, { useContext, useState } from 'react';
-import { WatchListContext } from '../context/watchListContext';
+import React, { useState, useContext } from "react";
+import { WatchListContext } from "../context/watchListContext";
 
-function AddCoin(props) {
-    
-    //Using the state to toggle the "show" class on the menu
-    const [menuItems, setMenuItems] = useState(false)
+const AddCoin = () => {
+  const [isActive, setIsActive] = useState(false);
+  const { addCoin } = useContext(WatchListContext);
+  const availableCoins = [
+    "bitcoin",
+    "ethereum",
+    "ripple",
+    "tether",
+    "bitcoin-cash",
+    "litecoin",
+    "eos",
+    "okb",
+    "tezos",
+    "cardano",
+  ];
 
-    // bring in the addCoin func from the contextProvider
-    const {addCoin} = useContext(WatchListContext)
+  const handleClick = (coin) => {
+    addCoin(coin);
+    setIsActive(false);
+  };
 
-
-    
-    // Array of top coins on RobinHood as of this year
-    const possibleCoins = [
-        'bitcoin',
-        'ethereum',
-        'dogecoin',
-        'cardano',
-        'bitcoin-SV',
-        'bitcoin-cash',
-        'litecoin',
-        'ethereum-classic',
-        'eos',
-        'okb',
-        'tezos',
-        'tether',
-        'ripple',
-    ]
-    
-    const handleClick = (coin) => {
-        addCoin(coin)
-        setMenuItems(false)
-    }
-
-    
-    return (
-        <div className='dropdown'> 
-        {/* use onClick to toggle state */}
-        <button className="btn btn-dark dropdown-toggle" onClick={() => setMenuItems(!menuItems)} type='button'>Add Coin</button>
-            <div className={menuItems ? 'dropdown-menu show' : 'dropdown-menu'}>
-                {/* Map over the array to display them in the dropdown while adding a bootstrap class */}
-                {possibleCoins.map((coin) => {
-                    return(
-                        <a onClick={() => handleClick(coin)} href='#' className='dropdown-item' >{coin}</a>
-                    )
-                })}
-            </div>
-        </div>
-    );
-}
+  return (
+    <div className="dropdown">
+      <button
+        onClick={() => setIsActive(!isActive)}
+        className="btn btn-primary dropdown-toggle"
+        type="button"
+      >
+        Add Coin
+      </button>
+      <div className={isActive ? "dropdown-menu show" : "dropdown-menu"}>
+        {availableCoins.map((el) => {
+          return (
+            <a
+              onClick={() => handleClick(el)}
+              href="#"
+              className="dropdown-item"
+            >
+              {el}
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
 
 export default AddCoin;
+
+
+
+
+
+// const possibleCoins = [
+//     'bitcoin',
+//     'ethereum',
+//     'dogecoin',
+//     'cardano',
+//     'bitcoin-SV',
+//     'bitcoin-cash',
+//     'litecoin',
+//     'ethereum-classic',
+//     'eos',
+//     'okb',
+//     'tezos',
+//     'tether',
+//     'ripple',
+// ]

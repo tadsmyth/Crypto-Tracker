@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { faArrowDown, faArrowUp, faMinusCircle } from '@fortawesome/free-solid-svg-icons';
+
 
 function Coin({coin}) {
     return (
@@ -16,7 +17,7 @@ function Coin({coin}) {
                 <span className={coin.price_change_percentage_24h < 0 ? 'text-danger m-1' : 'text-success m-1'}>
                     <i>{coin.price_change_percentage_24h < 0 ? <FontAwesomeIcon className='m-1' icon={faArrowDown}/> : <FontAwesomeIcon className='m-1' icon={faArrowUp}/> } </i>
                     {coin.price_change_percentage_24h}
-                  %</span>
+                  %<i><FontAwesomeIcon  onClick={deleteCoin} className='text-danger m-1' icon={faMinusCircle}/></i></span>
                 </li>
             </Link>
     );
