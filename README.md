@@ -35,7 +35,8 @@ Crypto Market requires React Installation to run properly
 
 ```sh
 npx create-react-app
-npm i
+npm install
+npm install Bootstrap@5.00
 npm start
 ```
 
