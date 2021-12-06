@@ -48,4 +48,28 @@ npm start
 - Save custom watchlists to keep an eye on that coin you put your mortgage in to!
 
 
+## List of Resources Used To Create This Project:
+-https://reactjs.org/docs/hooks-reference.html#usecontext
+
+-https://getbootstrap.com/docs/5.1/getting-started/introduction/
+
+-https://www.youtube.com/watch?v=sE08f4iuOhA
+
+-https://www.youtube.com/watch?v=Ly-9VTXJlnA
+
+-https://www.youtube.com/watch?v=35lXWvCuM8o
+
+-https://fontawesome.com/v5.15/how-to-use/on-the-web/using-with/react
+
+-https://www.youtube.com/watch?v=6LyagkoRWYA
+
+-https://www.youtube.com/watch?v=PoRJizFvM7s
+
+-https://www.youtube.com/watch?v=rpg1jOvGCtQ
+
+-https://www.udemy.com/course/the-complete-web-development-bootcamp/
+
+
+
+
 Thank you for using Crypto Market!
